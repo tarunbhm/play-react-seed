@@ -1,0 +1,35 @@
+{
+  "name": "play-react-seed",
+  "version": "1.0.0",
+  "description": "Play react js seed project with server side rendering",
+  "main": "app/assets/javascripts/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lib": "browserify -r classnames -r immutable -r keymirror -r object-assign -r react -r react/addons -r react-router -r flux -r superagent -t [envify --NODE_ENV production] | uglifyjs -cm > app/assets/javascripts/lib.js",
+    "start": "watchify -t [babelify --stage 0] -o app/assets/javascripts/bundle.js -v -d -x classnames -x immutable -x keymirror -x object-assign -x react -x react/addons -x react-router -x flux -x superagent app/assets/javascripts/app.js",
+    "build": "browserify . -x classnames -x immutable -x keymirror -x object-assign -x react -x react/addons -x react-router -x flux -x superagent -t [envify --NODE_ENV production] -t [babelify --stage 0] | uglifyjs -cm > app/assets/javascripts/bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tarun Bansal",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.1.3",
+    "flux": "^2.1.1",
+    "immutable": "^3.7.4",
+    "keymirror": "~0.1.0",
+    "object-assign": "^1.0.0",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "superagent": "^1.3.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
+    "envify": "^3.4.0",
+    "uglify-js": "^2.4.24",
+    "watchify": "^3.4.0"
+  }
+}
